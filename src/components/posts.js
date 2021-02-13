@@ -4,6 +4,8 @@ import Card from 'react-bootstrap/Card';
 import CardColumns from 'react-bootstrap/CardColumns';
 import axios from 'axios';
 
+import config from '../config';
+
 class Posts extends Component {
     constructor(props) {
         super(props);
@@ -16,7 +18,7 @@ class Posts extends Component {
     }
 
     loadPosts() {
-        axios.get("http://localhost:3000/post/all")
+        axios.get(`${config.backend}/post/all`)
             .then((response) => {
                 this.setState({
                     data: response.data.sort((a, b) => {

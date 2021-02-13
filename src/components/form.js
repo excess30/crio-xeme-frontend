@@ -4,6 +4,8 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 
+import config from '../config';
+
 class MemeForm extends Component {
 
     constructor(props) {
@@ -28,7 +30,7 @@ class MemeForm extends Component {
             e.stopPropagation();
         }
         else {
-            axios.post('http://localhost:3000/post', this.state.data)
+            axios.post(`${config.backend}/post`, this.state.data)
                 .then((_) => {
                     alert("posted!");
                     ReactDOM.findDOMNode(this.formRef).reset();
