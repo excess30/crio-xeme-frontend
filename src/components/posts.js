@@ -18,7 +18,7 @@ class Posts extends Component {
     }
 
     loadPosts() {
-        axios.get(`${config.backend}/meme`)
+        axios.get(`${config.backend}/memes`)
             .then((response) => {
                 this.setState({
                     data: response.data.sort((a, b) => {

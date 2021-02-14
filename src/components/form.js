@@ -30,7 +30,7 @@ class MemeForm extends Component {
             e.stopPropagation();
         }
         else {
-            axios.post(`${config.backend}/meme`, this.state.data)
+            axios.post(`${config.backend}/memes`, this.state.data)
                 .then((_) => {
                     alert("posted!");
                     ReactDOM.findDOMNode(this.formRef).reset();
