@@ -18,7 +18,7 @@ class Posts extends Component {
     }
 
     loadPosts() {
-        axios.get(`${config.backend}/post/all`)
+        axios.get(`${config.backend}/meme`)
             .then((response) => {
                 this.setState({
                     data: response.data.sort((a, b) => {
@@ -71,7 +71,7 @@ function PostCard(props) {
         <Card style={{ width: "20rem", textAlign: "left" }}>
             <Card.Img variant="top" src={props.data.url} />
             <Card.Body>
-                <Card.Title>{props.data.author}</Card.Title>
+                <Card.Title>{props.data.name}</Card.Title>
                 <Card.Text>
                     {props.data.caption}
                 </Card.Text>

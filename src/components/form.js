@@ -16,7 +16,7 @@ class MemeForm extends Component {
         this.state = {
             validated: false,
             data: {
-                author: "",
+                name: "",
                 caption: "",
                 url: ""
             }
@@ -30,7 +30,7 @@ class MemeForm extends Component {
             e.stopPropagation();
         }
         else {
-            axios.post(`${config.backend}/post`, this.state.data)
+            axios.post(`${config.backend}/meme`, this.state.data)
                 .then((_) => {
                     alert("posted!");
                     ReactDOM.findDOMNode(this.formRef).reset();
@@ -56,7 +56,7 @@ class MemeForm extends Component {
                 ref={ref => this.formRef = ref}>
                 <Form.Group controlId="formName">
                     <Form.Label>Name</Form.Label>
-                    <Form.Control required type="text" placeholder="enter name" onChange={(e) => this.state.data["author"] = e.target.value} />
+                    <Form.Control required type="text" placeholder="enter name" onChange={(e) => this.state.data["name"] = e.target.value} />
                     <Form.Control.Feedback type="invalid">
                         Name cannot be empty.
                     </Form.Control.Feedback>
